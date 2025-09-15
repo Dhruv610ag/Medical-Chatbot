@@ -96,7 +96,7 @@ Policies Required:
 Save the URI (example):
 
 ```bash
-666802049678.dkr.ecr.ap-southeast-2.amazonaws.com/medicoai-chatbot
+666802049678.dkr.ecr.us-east-1.amazonaws.com/medical-chatbot
 ```
 
 4. Launch an EC2 Instance (Ubuntu)
