@@ -73,7 +73,8 @@ http://localhost:5000
 - Python
 - LangChain
 - Flask
-- GPT (OpenAI API)
+- GROQ
+- PINECONE
 
 ---
 
