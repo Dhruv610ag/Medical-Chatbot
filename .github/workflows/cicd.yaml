@@ -23,6 +23,13 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      # ✅ Fix: set up Buildx so caching works
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          install: true
+          driver: docker-container
+
       - name: Build and Push Docker Image (with cache)
         uses: docker/build-push-action@v4
         with:
@@ -37,6 +44,7 @@ jobs:
   Continuous-Deployment:
     needs: Continuous-Integration
     runs-on: self-hosted
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
