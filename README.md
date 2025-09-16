@@ -67,7 +67,6 @@ http://localhost:5000
 ```
 
 ---
-
 # 🛠️ Tech Stack
 
 - Python
@@ -120,6 +119,7 @@ newgrp docker
 - Choose OS, then copy & run the provided commands on EC2
 
 7. Setup GitHub Secrets
+
 Add the following secrets in your repo settings (Settings > Secrets > Actions):
 
 - AWS_ACCESS_KEY_ID
