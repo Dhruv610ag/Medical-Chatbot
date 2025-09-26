@@ -3,6 +3,8 @@ __pycache__/
 *.py[codz]
 *$py.class
 .vscode
+myenv
+
 
 MedicalAi.egg-info
 # C extensions
