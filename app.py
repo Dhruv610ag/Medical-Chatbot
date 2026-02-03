@@ -1,12 +1,12 @@
-from flask import Flask, render_template, jsonify, request  # noqa: F401
+from flask import Flask, render_template, jsonify, request  
 from src.helper import download_embeddings
 from langchain_pinecone import PineconeVectorStore
 from langchain_groq import ChatGroq
-from langchain.chains import create_retrieval_chain
-from langchain.chains.combine_documents import create_stuff_documents_chain
+from langchain_classic.chains.combine_documents import create_stuff_documents_chain
+from langchain_classic.chains import create_retrieval_chain
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
-from src.prompt import *  # noqa: F403
+from src.prompt import *  
 import os
 app = Flask(__name__)
 load_dotenv()
@@ -31,7 +31,7 @@ retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":
 llm=ChatGroq(model="llama-3.1-8b-instant",groq_api_key=GROQ_API_KEY)
 prompt = ChatPromptTemplate.from_messages(
     [
-        ("system", system_prompt),  # noqa: F405
+        ("system", system_prompt),  
         ("human", "{input}"),
     ]
 )
