@@ -2,9 +2,18 @@ name: Deploy Application Docker Image to EC2 instance
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
+  dockerbuild:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build The Docker Image
+      run: docker build . --file DockerFile --tag workflow-test:$(date +%s)
+  
   Continuous-Integration:
     runs-on: ubuntu-latest
 
@@ -23,7 +32,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      # ✅ Fix: set up Buildx so caching works
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
         with:
